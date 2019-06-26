@@ -25,9 +25,11 @@ const nearbyStops = new NearbyStops(center, radius, stops)
 
 console.log(nearbyStops.getNearby())
 // => [{ lat: 25.775158, lng: -80.187358, distance: 1.548 }, ...]
-```
 
-The structure of [module.js](module.js) is based on [config.toml](config.toml).
+nearbyStops.updateCenter([25.751, -80.196])
+nearbyStops.updateRadius(10)
+nearbyStops.getNearby() // => new list of nearby stops
+```
 
 ## License
 
