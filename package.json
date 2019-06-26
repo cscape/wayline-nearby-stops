@@ -1,6 +1,6 @@
 {
   "name": "@wayline/nearby-stops",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "Calculate nearby transit stops, and sort by distance.",
   "main": "exports.js",
   "scripts": {
