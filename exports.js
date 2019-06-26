@@ -24,29 +24,32 @@ class NearbyStops {
     this.nearby = null
   }
 
-  set radius (r) {
+  updateRadius (r) {
     // Only reset if the new radius is bigger than current
     if (this.radius < r) this.nearby = null
     this.radius = r
   }
 
-  set center (c) {
+  updateCenter (c) {
     this.center = c
     this.nearby = null
   }
 
   /**
-   * Returns a list of all nearby stops based on supplied stop data and radius
+   * Returns a list of all nearby stops based on supplied stop data and radius.
+   * The distance property lists radial distance in kilometers.
    */
-  getStops () {
-    if (this.nearby != null) return this.nearby
-    return this.stopsByDistanceAscending(
-      this.radialStops(
-        this.boundedStops(
-          this.stops, this.boundary
-        ), this.radius, this.center
+  getNearby () {
+    if (this.nearby == null) {
+      this.nearby = NearbyStops.stopsByDistanceAscending(
+        NearbyStops.radialStops(
+          NearbyStops.boundedStops(
+            this.stops, this.boundary
+          ), this.radius, this.center
+        )
       )
-    )
+    }
+    return this.nearby
   }
 
   static boundedStops (stops, boundary) {
@@ -81,3 +84,5 @@ class NearbyStops {
     return stops.sort((a, b) => a.distance - b.distance)
   }
 }
+
+module.exports = NearbyStops
