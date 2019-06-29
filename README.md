@@ -2,8 +2,9 @@
 
 Simple module that lets you specify a list of coordinates (transit stops) and find the nearest ones based on their distance from a given coordinate (like a user's current GPS location). Radius and distances are specified in kilometers, so make sure to account for this when using miles, feet, and meters.
 
-## Install
+Although this repo seems large for a simple module, only `exports.js` is used when installed as a dependency. This package is very light, the other files are used for testing and data samples.
 
+## Install
 
 ```bash
 npm install cscape/wayline-nearby-stops
